@@ -1,0 +1,85 @@
+@model List<ClubSenderismo.Models.Ruta>
+@{
+    ViewData["Title"] = "Rutas";
+    string actual = ViewBag.Dificultad;
+}
+
+<section id="rutas" class="bg-light py-5">
+    <div class="container">
+        <h2 class="titulo">Calendario de rutas</h2>
+        <p>Próximas salidas programadas para este trimestre:</p>
+
+        <!-- Filtro: formulario GET -->
+        <form method="get" class="row mb-3">
+            <div class="col-md-4">
+                <label for="filtro-dificultad" class="form-label">Filtrar por dificultad:</label>
+                <select id="filtro-dificultad" name="dificultad" class="form-select" onchange="this.form.submit()">
+                    @foreach (var d in new[] { "Todas", "Fácil", "Media", "Difícil" })
+                    {
+                        <option value="@d" selected="@(d == actual)">@d</option>
+                    }
+                </select>
+            </div>
+        </form>
+
+        <!-- Cards con los resultados calculados en C# -->
+        <div class="row mb-3">
+            <div class="col-6 col-md-3">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <h3>@Model.Count</h3>
+                        <p class="mb-0">rutas</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <h3>@ViewBag.TotalKm</h3>
+                        <p class="mb-0">km en total</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="table-responsive">
+            <table class="table table-bordered bg-white">
+                <caption>Calendario de rutas - Trimestre 2026</caption>
+                <thead class="table-success">
+                    <tr>
+                        <th rowspan="2">Fecha</th>
+                        <th colspan="3">Detalles de la ruta</th>
+                        <th rowspan="2">Guía</th>
+                    </tr>
+                    <tr>
+                        <th>Ruta</th>
+                        <th>Dificultad</th>
+                        <th>Distancia (km)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var r in Model)
+                    {
+                        var color = r.Dificultad == "Media" ? "bg-warning text-dark"
+                                  : r.Dificultad == "Difícil" ? "bg-danger"
+                                  : "bg-success";
+                        <tr>
+                            <td>@r.Fecha</td>
+                            <td>@r.Nombre</td>
+                            <td><span class="badge @color">@r.Dificultad</span></td>
+                            <td>@r.Distancia</td>
+                            <td>@r.Guia</td>
+                        </tr>
+                    }
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="3">Distancia total</td>
+                        <td>@ViewBag.TotalKm km</td>
+                        <td>——————</td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+</section>

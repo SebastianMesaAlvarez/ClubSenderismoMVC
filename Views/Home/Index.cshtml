@@ -1,8 +1,133 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿@{ ViewData["Title"] = "Inicio"; }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<!-- INICIO -->
+<section id="inicio" class="bg-light py-5">
+    <div class="container">
+        <div class="row">
+            <article class="col-md-8">
+                <h2 class="titulo">Bienvenidos al Club de Senderismo</h2>
+                <p>Somos un club de senderismo que organiza caminatas guiadas los fines de semana
+                    para personas de todos los niveles de experiencia. Caminamos por senderos,
+                    cascadas y miradores, siempre acompañados de un guía certificado.</p>
+                <p>Si te gusta la naturaleza y quieres conocer gente nueva, este es tu lugar.</p>
+                <a class="btn btn-success" asp-controller="Socios" asp-action="Create">Inscribirme</a>
+                <a class="btn btn-outline-success" asp-controller="Rutas" asp-action="Index">Ver rutas</a>
+            </article>
+            <aside class="col-md-4">
+                <div class="alert alert-success">
+                    Próxima charla informativa para nuevos socios: primer sábado del mes
+                </div>
+            </aside>
+        </div>
+    </div>
+</section>
+
+<!-- QUIÉNES SOMOS -->
+<section id="quienes-somos" class="py-5">
+    <div class="container">
+        <h2 class="titulo">Quiénes somos</h2>
+        <div class="row">
+            <article class="col-md-6">
+                <p>El club nació en el año 2017 con un grupo pequeño de amigos y hoy en día
+                    cuenta con más de 120 socios activos. Nuestro objetivo es promover el
+                    senderismo responsable y el cuidado del medio ambiente.</p>
+
+                <h3>Lo que ofrecemos</h3>
+                <ul>
+                    <li>Rutas guiadas cada dos semanas</li>
+                    <li>Talleres de orientación y primeros auxilios</li>
+                    <li>Préstamo de equipo básico para nuevos socios</li>
+                    <li>Jornadas de limpieza de senderos</li>
+                </ul>
+
+                <h3>Cómo participar</h3>
+                <ol>
+                    <li>Completa el formulario de inscripción</li>
+                    <li>Recibe el calendario de rutas por correo</li>
+                    <li>Asiste a la charla informativa antes de tu primera caminata</li>
+                </ol>
+            </article>
+            <div class="col-md-6">
+                <img class="img-fluid rounded"
+                     src="https://images.pexels.com/photos/3604969/pexels-photo-3604969.jpeg?auto=compress&w=700&h=400&dpr=1&fit=crop"
+                     alt="Grupo de excursionistas caminando en fila por un pueblo de montaña">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- GALERÍA -->
+<section id="galeria" class="bg-light py-5">
+    <div class="container">
+        <h2 class="titulo">Galería de fotos</h2>
+        <p>Algunos momentos de nuestras últimas salidas:</p>
+        <div class="row">
+            <div class="col-md-4">
+                <figure>
+                    <img class="img-fluid rounded"
+                         src="https://images.unsplash.com/photo-1551632811-561732d1e306?auto=compress&w=700&h=400&dpr=1&fit=crop"
+                         alt="Grupo de excursionistas caminando por un sendero de montaña">
+                    <figcaption>Excursionistas disfrutando del paisaje montañoso.</figcaption>
+                </figure>
+            </div>
+            <div class="col-md-4">
+                <figure>
+                    <img class="img-fluid rounded"
+                         src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=compress&w=700&h=400&dpr=1&fit=crop"
+                         alt="Montañas verdes y un valle visto desde el sendero">
+                    <figcaption>Cascada del Encanto, una de nuestras rutas más populares.</figcaption>
+                </figure>
+            </div>
+            <div class="col-md-4">
+                <figure>
+                    <img class="img-fluid rounded"
+                         src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=compress&w=700&h=400&dpr=1&fit=crop"
+                         alt="Sendero rodeado de árboles frondosos">
+                    <figcaption>Sendero del Río Azul, ideal para los amantes de la naturaleza.</figcaption>
+                </figure>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- MULTIMEDIA -->
+<section id="multimedia" class="py-5">
+    <div class="container">
+        <h2 class="titulo">Multimedia</h2>
+
+        <figure>
+            <img class="img-fluid rounded"
+                 src="https://images.pexels.com/photos/10671193/pexels-photo-10671193.jpeg?cs=tinysrgb&dpr=1&w=500"
+                 alt="Excursionistas recorriendo un sendero de montaña en un día de niebla" width="500">
+            <figcaption>Caminata matutina con niebla en la ruta Cerro Alto</figcaption>
+        </figure>
+
+        <div class="row">
+            <div class="col-md-6">
+                <h3>Video: naturaleza en movimiento</h3>
+                <p>Un recorrido visual por un entorno natural, ideal para inspirar nuestras próximas rutas.</p>
+                <video controls class="w-100">
+                    <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" type="video/mp4">
+                    Tu navegador no soporta videos HTML5.
+                </video>
+            </div>
+            <div class="col-md-6">
+                <h3>Audio: música para el sendero</h3>
+                <p>Una melodía tranquila para acompañar la planificación de nuestras rutas.</p>
+                <audio controls class="w-100">
+                    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+                    Tu navegador no soporta audio HTML5.
+                </audio>
+
+                <h3 class="mt-3">Insignia del club</h3>
+                <p>Ilustración del club hecha con SVG: montañas y sol.</p>
+                <svg width="220" height="140" viewBox="0 0 220 140">
+                    <rect x="0" y="0" width="220" height="140" fill="#cdeffd"></rect>
+                    <circle cx="180" cy="30" r="18" fill="#f4b400"></circle>
+                    <polygon points="0,140 60,60 100,110 130,70 220,140" fill="#4a7c59"></polygon>
+                    <polygon points="90,140 140,90 190,140" fill="#3a6349"></polygon>
+                </svg>
+            </div>
+        </div>
+    </div>
+</section>

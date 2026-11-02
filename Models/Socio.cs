@@ -25,7 +25,5 @@ public class Socio
     public List<string> Intereses { get; set; } = new();
     public string? Comentarios { get; set; }
     public string? Ruta { get; set; }
-
-    [Range(typeof(bool), "true", "true", ErrorMessage = "Debes aceptar el reglamento del club")]
     public bool AceptoReglamento { get; set; }
 }
