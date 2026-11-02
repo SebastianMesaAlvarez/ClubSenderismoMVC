@@ -7,6 +7,7 @@ public class Socio
     public int Id { get; set; }
 
     [Required(ErrorMessage = "El nombre es obligatorio")]
+    [StringLength(50, MinimumLength = 3, ErrorMessage = "El nombre debe tener entre 3 y 50 caracteres")]
     public string Nombre { get; set; } = "";
 
     [Required(ErrorMessage = "El correo es obligatorio")]
